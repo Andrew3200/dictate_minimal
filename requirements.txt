@@ -1,0 +1,7 @@
+RealtimeSTT
+textual
+pynput
+pyautogui
+pyperclip
+torch
+nvidia-ml-py

@@ -1,0 +1,110 @@
+/* Textual CSS for Dictation App */
+
+Screen {
+    layout: grid;
+    grid-size: 1;
+    grid-rows: auto 1fr auto;
+}
+
+/* Status Header */
+StatusHeader {
+    height: auto;
+    min-height: 6;
+    padding: 0 2;
+    border: solid $primary;
+}
+
+/* Dictation Panel - contains log + draft as one unit */
+DictationPanel {
+    height: 1fr;
+    border: solid $secondary;
+    padding: 0;
+}
+
+/* Dictation Log - scrollable area inside panel */
+DictationLog {
+    height: 1fr;
+    padding: 1 2;
+    scrollbar-gutter: stable;
+}
+
+/* Draft line at bottom of panel (inside the bordered area) */
+DraftLine {
+    height: auto;
+    min-height: 1;
+    padding: 0 2 1 2;
+    background: $surface;
+}
+
+/* VRAM Footer */
+VRAMFooter {
+    height: auto;
+    min-height: 4;
+    padding: 0 2;
+    border: solid $accent;
+}
+
+/* Progress bar inside VRAM footer */
+VRAMFooter ProgressBar {
+    padding: 0 1;
+}
+
+/* ============================================================
+   VRAM Level States - App-wide color changes
+   ============================================================ */
+
+/* Normal state (>50% free) - default colors */
+Screen.vram-normal StatusHeader {
+    border: solid $primary;
+}
+Screen.vram-normal DictationPanel {
+    border: solid $secondary;
+}
+Screen.vram-normal VRAMFooter {
+    border: solid $accent;
+}
+
+/* Warning state (30-50% free) - yellow tint */
+Screen.vram-warning StatusHeader {
+    border: solid yellow;
+}
+Screen.vram-warning DictationPanel {
+    border: solid yellow;
+}
+Screen.vram-warning VRAMFooter {
+    border: solid yellow;
+    background: $surface-darken-1;
+}
+Screen.vram-warning ProgressBar > .bar--bar {
+    background: yellow;
+}
+
+/* Danger state (15-30% free) - orange */
+Screen.vram-danger StatusHeader {
+    border: solid darkorange;
+}
+Screen.vram-danger DictationPanel {
+    border: solid darkorange;
+}
+Screen.vram-danger VRAMFooter {
+    border: solid darkorange;
+    background: $surface-darken-2;
+}
+Screen.vram-danger ProgressBar > .bar--bar {
+    background: darkorange;
+}
+
+/* Critical state (<15% free) - red everything */
+Screen.vram-critical StatusHeader {
+    border: solid red;
+}
+Screen.vram-critical DictationPanel {
+    border: solid red;
+}
+Screen.vram-critical VRAMFooter {
+    border: solid red;
+    background: darkred 30%;
+}
+Screen.vram-critical ProgressBar > .bar--bar {
+    background: red;
+}
