@@ -1,3 +1,6 @@
+# Archive/deprecated code
+_archive/
+
 # Virtual environment
 .venv/
 venv/
